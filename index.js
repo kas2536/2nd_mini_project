@@ -4,12 +4,12 @@ const app = express();
 const PORT = 3000;
 const API_BASE_URL = "https://www.thecocktaildb.com/api/json/v1/1";
 
-// Middleware configuration
+// config middleware and view engine
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
-// Helper function to extract ingredients & measures from API object
+// function to extract recipe from API object
 function formatRecipe(drink) {
   const ingredients = [];
   for (let i = 1; i <= 15; i++) {
@@ -34,12 +34,7 @@ function formatRecipe(drink) {
   };
 }
 
-// Route 1: Home Page (Search Form + Quick Actions)
-app.get("/", (req, res) => {
-  res.render("index", { drink: null, error: null });
-});
-
-// Route 2: Search by Name
+// route 1: search by name
 app.post("/search", async (req, res) => {
   const searchQuery = req.body.drinkName?.trim();
 
@@ -72,7 +67,7 @@ app.post("/search", async (req, res) => {
   }
 });
 
-// Route 3: Get Random Cocktail
+// route 2: get random cocktail
 app.get("/random", async (req, res) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/random.php`);

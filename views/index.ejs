@@ -1,15 +1,15 @@
 <%- include("partials/header") %>
 
 <main class="container my-5">
-  <!-- Header Title -->
+  <!-- header -->
   <div class="row text-center mb-4">
     <div class="col">
       <h1 class="display-5 fw-bold text-primary">🍸 Cocktail Recipe Finder</h1>
-      <p class="lead text-secondary">Search for a cocktail recipe or get a random drink idea!</p>
+      <p class="lead text-secondary">Search for a recipe or get a random drink</p>
     </div>
   </div>
 
-  <!-- Search & Action Card -->
+  <!-- search card -->
   <div class="row justify-content-center mb-4">
     <div class="col-md-8">
       <div class="card shadow-sm border-0 p-4">
@@ -34,13 +34,13 @@
         </div>
 
         <div class="d-grid">
-          <a href="/random" class="btn btn-outline-secondary btn-lg">Get Random Cocktail 🎲</a>
+          <a href="/random" class="btn btn-outline-secondary btn-lg">Get Random Drink</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Error Feedback -->
+  <!-- error -->
   <% if (error) { %>
     <div class="row justify-content-center mb-4">
       <div class="col-md-8">
@@ -52,13 +52,13 @@
     </div>
   <% } %>
 
-  <!-- Recipe Display Area -->
+  <!-- display the drink -->
   <% if (drink) { %>
     <div class="row justify-content-center">
       <div class="col-md-10 col-lg-8">
         <div class="card shadow-lg border-0 overflow-hidden">
           <div class="row g-0">
-            <!-- Cocktail Image -->
+            <!-- picture of drink -->
             <div class="col-md-5">
               <img 
                 src="<%= drink.image %>" 
@@ -67,7 +67,7 @@
                 style="min-height: 300px;"
               >
             </div>
-            <!-- Recipe Info -->
+            <!-- drink info -->
             <div class="col-md-7">
               <div class="card-body p-4">
                 <h2 class="card-title text-primary fw-bold mb-3"><%= drink.name %></h2>
